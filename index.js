@@ -21,7 +21,10 @@ app.get("/", (req, res) => {
   res.status(200).json({
     success: true,
     message: "Server Connected.",
-    apis: { categories: "", furnitures: "" },
+    apis: {
+      categories: "https://elitefurnishingsbackend.onrender.com/categories",
+      furnitures: "https://elitefurnishingsbackend.onrender.com/furnitures",
+    },
   });
 });
 
