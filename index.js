@@ -6,6 +6,8 @@ const insertCategories = require("./Api/Admin/Categories/insertCategories");
 const insertFurnitures = require("./Api/Admin/Furnitures/insertFurnitures");
 const fetchAllFurnitures = require("./Api/User/Furnitures/fetchAllFurnitures");
 const insertFurniture = require("./Api/Admin/Furnitures/insertFurniture");
+const fetchFurnitureById = require("./Api/User/Furnitures/fetchFurnitureById");
+const fetchFurnitureByCategory = require("./Api/User/Categories/fetchFurnituresByCategory");
 require("dotenv").config();
 
 const app = express();
@@ -30,6 +32,8 @@ app.get("/", (req, res) => {
 
 app.get("/categories", fetchAllCategories);
 app.get("/furnitures", fetchAllFurnitures);
+app.get("/furnitures/:furniture_id", fetchFurnitureById);
+app.get("/category/:category_id", fetchFurnitureByCategory);
 
 // admin api
 app.post("/insertCategories", insertCategories);
