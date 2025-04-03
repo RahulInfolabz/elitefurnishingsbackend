@@ -8,6 +8,8 @@ const fetchAllFurnitures = require("./Api/User/Furnitures/fetchAllFurnitures");
 const insertFurniture = require("./Api/Admin/Furnitures/insertFurniture");
 const fetchFurnitureById = require("./Api/User/Furnitures/fetchFurnitureById");
 const fetchFurnitureByCategory = require("./Api/User/Categories/fetchFurnituresByCategory");
+const updateFurnitureCategory = require("./Api/User/Categories/updateCategoryId");
+const deleteProductsByCategory = require("./Api/User/Furnitures/deleteFurnitures");
 require("dotenv").config();
 
 const app = express();
@@ -47,6 +49,9 @@ app.get("/categories", fetchAllCategories);
 app.get("/furnitures", fetchAllFurnitures);
 app.get("/furnitures/:furniture_id", fetchFurnitureById);
 app.get("/category/:category_id", fetchFurnitureByCategory);
+
+app.post("/updateFurnitureCategory", updateFurnitureCategory);
+app.post("/deleteProductsByCategory/:category_id", deleteProductsByCategory);
 
 // admin api
 app.post("/insertCategories", insertCategories);

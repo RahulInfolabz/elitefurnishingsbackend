@@ -1,10 +1,9 @@
+const { ObjectId } = require("mongodb");
 const connectDb = require("../../../Db/connectDb");
 
 async function fetchFurnitureByCategory(req, res) {
   try {
     const { category_id } = req.params;
-
-    const numericCategoryId = parseInt(category_id);
 
     const db = await connectDb();
 
@@ -12,7 +11,7 @@ async function fetchFurnitureByCategory(req, res) {
 
     const furniture = await collection
       .find({
-        category_id: numericCategoryId, // Now category_id is a number
+        category_id: ObjectId.createFromHexString(category_id),
       })
       .toArray();
 
