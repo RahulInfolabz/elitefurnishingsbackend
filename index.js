@@ -53,7 +53,7 @@ app.get("/category/:category_id", fetchFurnitureByCategory);
 
 app.post("/updateFurnitureCategory", updateFurnitureCategory);
 app.post("/deleteProductsByCategory/:category_id", deleteProductsByCategory);
-app.post("/storeContactInqyiry", AddContactInquiry);
+app.post("/storeContactInquiry", AddContactInquiry);
 
 // admin api
 app.post("/insertCategories", insertCategories);
